@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PageCraft AI - AI Landing Page Generator</title>
-    <!-- Tailwind CSS CDN -->
+    <title>PageCraft AI - F-Commerce Landing Page Generator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -22,287 +21,135 @@
             }
         }
     </script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col justify-between">
-
-    <!-- 1. Header Section -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-brand-500 selection:text-white">
+    <!-- Navbar -->
+    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             <div class="flex items-center space-x-2">
-                <div class="bg-gradient-to-tr from-purple-600 to-indigo-600 p-2 rounded-lg text-white shadow-lg shadow-purple-500/30">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                </div>
-                <span class="text-xl font-bold bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
-                    PageCraft AI
-                </span>
+                <span class="bg-gradient-to-r from-brand-500 to-indigo-500 p-2 rounded-xl text-white font-bold shadow-lg shadow-brand-500/20">✨</span>
+                <span class="text-xl font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">PageCraft AI</span>
             </div>
-            <div>
-                <a href="#generator" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 rounded-lg shadow-md shadow-purple-600/20 transition-all">
-                    Get Started Free
-                </a>
-            </div>
+            <span class="text-xs px-3 py-1 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-full font-medium">Meta Page Edition</span>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow">
-        <!-- 2. Hero Section -->
-        <section class="relative overflow-hidden pt-16 pb-12 lg:pt-24 lg:pb-16">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-slate-950/0 to-slate-950/0 pointer-events-none"></div>
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-6">
-                    <i class="fa-solid fa-bolt text-xs"></i> Powered by Next-Gen AI
-                </span>
-                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6">
-                    Build High-Converting Landing Pages in <span class="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">Seconds</span>
-                </h1>
-                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10">
-                    Stop wasting hours on design and copywriting. Enter a few details about your product and let PageCraft AI instantly craft a stunning, conversion-optimized landing page.
-                </p>
-            </div>
-        </section>
+    <!-- Main Container -->
+    <main class="max-w-3xl mx-auto px-4 py-10">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
+                Facebook Page & F-Commerce <span class="bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">Landing Page Builder</span>
+            </h1>
+            <p class="text-slate-400 text-base max-w-xl mx-auto">
+                Messenger chat ba inboxing-er jhamela chara apnar Facebook Page-er product ba service-er jonno instant professional landing page banan!
+            </p>
+        </div>
 
-        <!-- 3. Input Wizard Form Section -->
-        <section id="generator" class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative">
-                <div class="absolute -top-3 left-8 bg-purple-600 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                    Wizard Form
-                </div>
-                
-                <form id="landingForm" class="space-y-6 mt-2">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Product Name -->
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Product Name <span class="text-purple-400">*</span></label>
-                            <input type="text" id="productName" required placeholder="e.g. TaskFlow Pro" 
-                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
-                        </div>
-                        <!-- Niche -->
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Niche / Industry <span class="text-purple-400">*</span></label>
-                            <input type="text" id="niche" required placeholder="e.g. SaaS / Project Management" 
-                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
-                        </div>
-                    </div>
+        <!-- Wizard Card -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-sm relative overflow-hidden">
+            <div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <!-- Target Audience -->
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Target Audience <span class="text-purple-400">*</span></label>
-                            <input type="text" id="audience" required placeholder="e.g. Remote Startup Founders" 
-                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
-                        </div>
-                        <!-- Tone of Voice -->
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Tone of Voice</label>
-                            <select id="tone" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
-                                <option value="Professional & Bold">Professional & Bold</option>
-                                <option value="Playful & Casual">Playful & Casual</option>
-                                <option value="Urgent & Direct">Urgent & Direct</option>
-                                <option value="Minimalist & Elegant">Minimalist & Elegant</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- 4. "Generate Landing Page" Button -->
-                    <div class="pt-4">
-                        <button type="submit" id="generateBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-4 rounded-xl shadow-lg shadow-purple-600/25 transition-all flex items-center justify-center space-x-2 cursor-pointer">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            <span id="btnText">Generate Landing Page</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-        <!-- 5. Preview Section -->
-        <section id="previewSection" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-            <div class="border-t border-slate-800 pt-16">
-                <div class="flex items-center justify-between mb-8">
-                    <div>
-                        <h2 class="text-2xl font-bold text-white">Live Landing Page Preview</h2>
-                        <p class="text-sm text-slate-400">Generated dynamically based on your inputs.</p>
-                    </div>
-                    <button onclick="resetGenerator()" class="text-sm text-purple-400 hover:text-purple-300 border border-purple-500/20 px-3 py-1.5 rounded-lg bg-purple-500/10 transition-all">
-                        <i class="fa-solid fa-rotate-left mr-1"></i> Edit Inputs
-                    </button>
+            <form id="landingForm" class="space-y-6">
+                <!-- Product Name -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Product / Page Name *</label>
+                    <input type="text" id="productName" required placeholder="Jemon: Apon Fashion / Organic Honey" 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
                 </div>
 
-                <!-- Framer/Browser Container Mockup -->
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-                    <!-- Browser Top Bar -->
-                    <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center space-x-2">
-                        <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                        <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                        <div class="ml-4 bg-slate-900 text-slate-400 text-xs px-3 py-1 rounded-md w-64 truncate border border-slate-800" id="previewUrl">
-                            https://pagecraft.ai/preview/product
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Render Container -->
-                    <div id="dynamicPageContent" class="bg-slate-950 text-slate-100">
-                        <!-- Content injected via JavaScript -->
-                    </div>
+                <!-- Business Category -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Business Category *</label>
+                    <select id="businessCategory" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
+                        <option value="Clothing & Fashion">🛍️ Clothing & Fashion (পোশাক)</option>
+                        <option value="Skincare & Cosmetics">💄 Skincare & Cosmetics (প্রসাধন)</option>
+                        <option value="Food & Organic">🍯 Food & Organic (খাবার ও মধু)</option>
+                        <option value="Gadgets & Accessories">📱 Gadgets & Accessories (গ্যাজেট)</option>
+                        <option value="Service & Agency">💼 Service & Agency (সার্ভিস)</option>
+                    </select>
                 </div>
+
+                <!-- Target Customer -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Target Customer (কাদের জন্য?)</label>
+                    <input type="text" id="targetAudience" placeholder="Jemon: Students, Housewives, Youth" 
+                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
+                </div>
+
+                <!-- Call to Action Type -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">Primary Button Action</label>
+                    <select id="ctaAction" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
+                        <option value="messenger">💬 Order on Messenger (ইনবক্স অর্ডার)</option>
+                        <option value="whatsapp">📱 Order on WhatsApp (হোয়াটসঅ্যাপ অর্ডার)</option>
+                        <option value="checkout">🛒 Direct Form Checkout (অর্ডার ফর্ম)</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-brand-500/25 transition transform active:scale-[0.99] flex items-center justify-center space-x-2">
+                    <span>⚡ Generate F-Commerce Landing Page</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Preview Section (Hidden initially) -->
+        <div id="previewSection" class="hidden mt-10 bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
+            <h3 class="text-xl font-bold mb-4 text-brand-400">🎉 Your Generated Landing Page Preview:</h3>
+            <div id="previewContent" class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
+                <!-- Dynamic Content Will Load Here -->
             </div>
-        </section>
+            <button id="resetBtn" class="mt-6 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold px-4 py-2 rounded-xl text-sm transition">
+                ← Back to Edit
+            </button>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-900 py-6 text-center text-xs text-slate-500">
-        &copy; 2026 PageCraft AI. All rights reserved.
+    <footer class="text-center py-8 text-slate-600 text-sm border-t border-slate-900 mt-10">
+        © 2026 PageCraft AI. All rights reserved for F-Commerce Owners.
     </footer>
 
-    <!-- JavaScript Logic -->
+    <!-- Script -->
     <script>
         const form = document.getElementById('landingForm');
-        const generateBtn = document.getElementById('generateBtn');
-        const btnText = document.getElementById('btnText');
         const previewSection = document.getElementById('previewSection');
-        const dynamicPageContent = document.getElementById('dynamicPageContent');
-        const previewUrl = document.getElementById('previewUrl');
+        const previewContent = document.getElementById('previewContent');
+        const resetBtn = document.getElementById('resetBtn');
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('businessCategory').value;
+            const audience = document.getElementById('targetAudience').value || 'General Customers';
+            const cta = document.getElementById('ctaAction').value;
 
-            // Fetch form field values
-            const productName = document.getElementById('productName').value.trim();
-            const niche = document.getElementById('niche').value.trim();
-            const audience = document.getElementById('audience').value.trim();
-            const tone = document.getElementById('tone').value;
+            let ctaText = "Order Now";
+            if(cta === 'messenger') ctaText = "💬 Order on Messenger";
+            if(cta === 'whatsapp') ctaText = "📱 Order on WhatsApp";
+            if(cta === 'checkout') ctaText = "🛒 Place Order Now";
 
-            // Show loading state on button
-            btnText.innerHTML = "Crafting Page...";
-            generateBtn.disabled = true;
-
-            setTimeout(() => {
-                // Generate Dynamic Content Templates based on inputs
-                renderLandingPage({ productName, niche, audience, tone });
-
-                // Reset button state
-                btnText.innerHTML = "Generate Landing Page";
-                generateBtn.disabled = false;
-
-                // Scroll smoothly to preview section
-                previewSection.classList.remove('hidden');
-                previewSection.scrollIntoView({ behavior: 'smooth' });
-            }, 1000); // Simulated AI generation delay
-        });
-
-        function renderLandingPage(data) {
-            // Update browser bar mockup text
-            previewUrl.innerText = `https://${data.productName.toLowerCase().replace(/\s+/g, '')}.app`;
-
-            // HTML Structure for the generated landing page elements (Hero, Features, Testimonials, CTA)
-            dynamicPageContent.innerHTML = `
-                <!-- Generated Hero -->
-                <div class="relative px-6 py-20 lg:py-32 text-center overflow-hidden border-b border-slate-900">
-                    <div class="max-w-3xl mx-auto space-y-6">
-                        <span class="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-400 font-medium border border-purple-500/20">
-                            Tailored for ${data.audience}
-                        </span>
-                        <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
-                            Supercharge Your Workflow with <span class="text-purple-400">${data.productName}</span>
-                        </h1>
-                        <p class="text-slate-400 text-lg">
-                            The ultimate solution built specifically for ${data.niche}. Experience a ${data.tone.toLowerCase()} approach to scaling up your productivity today.
-                        </p>
-                        <div class="pt-4 flex justify-center gap-4">
-                            <button class="bg-purple-600 hover:bg-purple-500 text-white font-medium px-6 py-3 rounded-xl shadow-lg shadow-purple-600/30 transition-all">
-                                Start Free Trial
-                            </button>
-                            <button class="bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 font-medium px-6 py-3 rounded-xl transition-all">
-                                Book a Demo
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Generated Features -->
-                <div class="px-6 py-20 border-b border-slate-900 bg-slate-900/50">
-                    <div class="max-w-5xl mx-auto">
-                        <div class="text-center max-w-xl mx-auto mb-16">
-                            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Why ${data.audience} Choose Us</h2>
-                            <p class="text-slate-400 text-sm">Designed from the ground up to solve modern challenges in ${data.niche}.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-                                <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
-                                    <i class="fa-solid fa-bolt"></i>
-                                </div>
-                                <h3 class="font-semibold text-white mb-2">Lightning Fast Setup</h3>
-                                <p class="text-slate-400 text-sm">Deploy and configure in minutes without writing complex scripts or code.</p>
-                            </div>
-                            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-                                <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4">
-                                    <i class="fa-solid fa-chart-line"></i>
-                                </div>
-                                <h3 class="font-semibold text-white mb-2">Instant Results</h3>
-                                <p class="text-slate-400 text-sm">Accelerate metrics right away with workflows fine-tuned for ${data.niche}.</p>
-                            </div>
-                            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-                                <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
-                                    <i class="fa-solid fa-shield-halved"></i>
-                                </div>
-                                <h3 class="font-semibold text-white mb-2">Enterprise Security</h3>
-                                <p class="text-slate-400 text-sm">Keep your team's sensitive data safe with bank-grade encryption protocols.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Generated Testimonials -->
-                <div class="px-6 py-20 border-b border-slate-900">
-                    <div class="max-w-4xl mx-auto text-center">
-                        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-12">Loved by Industry Leaders</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-                                <p class="text-slate-300 text-sm mb-4">"${data.productName} completely transformed how our team handles day-to-day operations. Absolute game-changer!"</p>
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-9 h-9 rounded-full bg-purple-600/30 flex items-center justify-center text-purple-300 font-bold text-xs">JD</div>
-                                    <div>
-                                        <h4 class="text-xs font-semibold text-white">Jessica Doe</h4>
-                                        <p class="text-[10px] text-slate-500">Lead Director at TechCorp</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-slate-900 border border-slate-800 p-6 rounded-xl">
-                                <p class="text-slate-300 text-sm mb-4">"The tone and targeting fits our exact use case. Couldn't recommend a better platform for ${data.niche}."</p>
-                                <div class="flex items-center space-x-3">
-                                    <div class="w-9 h-9 rounded-full bg-indigo-600/30 flex items-center justify-center text-indigo-300 font-bold text-xs">AS</div>
-                                    <div>
-                                        <h4 class="text-xs font-semibold text-white">Alex Smith</h4>
-                                        <p class="text-[10px] text-slate-500">Founder & CEO</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Generated CTA Section -->
-                <div class="px-6 py-20 text-center bg-gradient-to-b from-slate-950 to-purple-950/20">
-                    <div class="max-w-3xl mx-auto space-y-6">
-                        <h2 class="text-3xl font-bold text-white">Ready to Transform Your Workflow with ${data.productName}?</h2>
-                        <p class="text-slate-400 text-sm max-w-lg mx-auto">Join hundreds of ${data.audience} scaling their growth today. No credit card required.</p>
-                        <div>
-                            <button class="bg-purple-600 hover:bg-purple-500 text-white font-medium px-8 py-3.5 rounded-xl shadow-lg shadow-purple-600/30 transition-all">
-                                Get Started Now
-                            </button>
-                        </div>
+            previewContent.innerHTML = `
+                <div class="text-center space-y-3">
+                    <span class="text-xs uppercase tracking-widest text-brand-400 font-bold">${category}</span>
+                    <h2 class="text-2xl md:text-3xl font-black text-white">${name}</h2>
+                    <p class="text-slate-300 text-sm max-w-md mx-auto">Best quality products specially curated for ${audience}. Order today and get exclusive cash on delivery support across Bangladesh!</p>
+                    <div class="pt-4">
+                        <button class="bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-brand-500/20 hover:opacity-95 transition">
+                            ${ctaText}
+                        </button>
                     </div>
                 </div>
             `;
-        }
 
-        function resetGenerator() {
+            form.parentElement.classList.add('hidden');
+            previewSection.classList.remove('hidden');
+        });
+
+        resetBtn.addEventListener('click', function() {
             previewSection.classList.add('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+            form.parentElement.classList.remove('hidden');
+        });
     </script>
 </body>
-  </html>
-  
+</html>

@@ -1,155 +1,289 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PageCraft AI - F-Commerce Landing Page Generator</title>
+    <title>PageCraft BD - F-Commerce Landing Page & Order Automation</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
+                        slate: {
+                            950: '#0a0f1d',
+                        },
                         brand: {
-                            50: '#fdf4ff',
-                            500: '#d946ef',
-                            600: '#c026d3',
-                            700: '#a21caf',
+                            500: '#6366f1',
+                            600: '#4f46e5',
                         }
                     }
                 }
             }
         }
     </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-sora { font-family: 'Sora', sans-serif; }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-brand-500 selection:text-white">
-    <!-- Navbar -->
-    <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <span class="bg-gradient-to-r from-brand-500 to-indigo-500 p-2 rounded-xl text-white font-bold shadow-lg shadow-brand-500/20">✨</span>
-                <span class="text-xl font-black tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">PageCraft AI</span>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-white pb-16">
+
+    <!-- 1. STICKY TOP BAR: URGENT ANNOUNCEMENT -->
+    <div class="bg-gradient-to-r from-amber-600 via-rose-600 to-indigo-600 text-white text-xs sm:text-sm font-medium py-2 px-4 text-center sticky top-0 z-50 shadow-md flex items-center justify-center gap-2">
+        <span>🔥 সীমিত সময়ের অফার! সারা বাংলাদেশে ক্যাশ অন ডেলিভারি (Cash on Delivery) চালু আছে।</span>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-8 z-40 backdrop-blur-xl bg-slate-950/80 border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20 font-bold text-lg">
+                    ✨
+                </div>
+                <div>
+                    <span id="navStoreName" class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
+                        GadgetBD Store
+                    </span>
+                    <span class="block text-[10px] text-emerald-400 font-medium">Verified F-Commerce Shop</span>
+                </div>
             </div>
-            <span class="text-xs px-3 py-1 bg-brand-500/10 text-brand-400 border border-brand-500/20 rounded-full font-medium">Meta Page Edition</span>
+
+            <div class="flex items-center gap-3">
+                <!-- Owner Dashboard Toggle Button -->
+                <button onclick="toggleDashboard()" class="text-xs sm:text-sm bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-700 px-3.5 py-2 rounded-xl transition font-medium flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-chart-line text-emerald-400"></i>
+                    <span class="hidden sm:inline">Merchant Panel</span>
+                </button>
+                <a href="#orderSection" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-bag-shopping"></i> অর্ডার করুন
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="max-w-3xl mx-auto px-4 py-10">
-        <div class="text-center mb-10">
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
-                Facebook Page & F-Commerce <span class="bg-gradient-to-r from-brand-400 to-indigo-400 bg-clip-text text-transparent">Landing Page Builder</span>
-            </h1>
-            <p class="text-slate-400 text-base max-w-xl mx-auto">
-                Messenger chat ba inboxing-er jhamela chara apnar Facebook Page-er product ba service-er jonno instant professional landing page banan!
-            </p>
-        </div>
+    <!-- MAIN APP CONTAINER -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-16">
 
-        <!-- Wizard Card -->
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-sm relative overflow-hidden">
-            <div class="absolute top-0 right-0 transform translate-x-4 -translate-y-4 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-            <form id="landingForm" class="space-y-6">
-                <!-- Product Name -->
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Product / Page Name *</label>
-                    <input type="text" id="productName" required placeholder="Jemon: Apon Fashion / Organic Honey" 
-                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
-                </div>
-
-                <!-- Business Category -->
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Business Category *</label>
-                    <select id="businessCategory" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
-                        <option value="Clothing & Fashion">🛍️ Clothing & Fashion (পোশাক)</option>
-                        <option value="Skincare & Cosmetics">💄 Skincare & Cosmetics (প্রসাধন)</option>
-                        <option value="Food & Organic">🍯 Food & Organic (খাবার ও মধু)</option>
-                        <option value="Gadgets & Accessories">📱 Gadgets & Accessories (গ্যাজেট)</option>
-                        <option value="Service & Agency">💼 Service & Agency (সার্ভিস)</option>
-                    </select>
-                </div>
-
-                <!-- Target Customer -->
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Target Customer (কাদের জন্য?)</label>
-                    <input type="text" id="targetAudience" placeholder="Jemon: Students, Housewives, Youth" 
-                        class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-600 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
-                </div>
-
-                <!-- Call to Action Type -->
-                <div>
-                    <label class="block text-sm font-semibold text-slate-300 mb-2">Primary Button Action</label>
-                    <select id="ctaAction" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition">
-                        <option value="messenger">💬 Order on Messenger (ইনবক্স অর্ডার)</option>
-                        <option value="whatsapp">📱 Order on WhatsApp (হোয়াটসঅ্যাপ অর্ডার)</option>
-                        <option value="checkout">🛒 Direct Form Checkout (অর্ডার ফর্ম)</option>
-                    </select>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="w-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold py-4 px-6 rounded-xl shadow-lg shadow-brand-500/25 transition transform active:scale-[0.99] flex items-center justify-center space-x-2">
-                    <span>⚡ Generate F-Commerce Landing Page</span>
-                </button>
-            </form>
-        </div>
-
-        <!-- Preview Section (Hidden initially) -->
-        <div id="previewSection" class="hidden mt-10 bg-slate-900 border border-slate-800 rounded-2xl p-6 md:p-8">
-            <h3 class="text-xl font-bold mb-4 text-brand-400">🎉 Your Generated Landing Page Preview:</h3>
-            <div id="previewContent" class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
-                <!-- Dynamic Content Will Load Here -->
+        <!-- MERCHANT / OWNER UTILITY CONTROL PANEL (Hidden by default, toggleable) -->
+        <div id="merchantDashboard" class="hidden bg-slate-900 border border-emerald-500/30 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-emerald-500/10 text-emerald-400 text-xs px-4 py-1.5 rounded-bl-xl font-semibold border-l border-b border-emerald-500/20">
+                ⚙️ Owner Control Suite
             </div>
-            <button id="resetBtn" class="mt-6 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold px-4 py-2 rounded-xl text-sm transition">
-                ← Back to Edit
-            </button>
-        </div>
-    </main>
+            
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-sliders text-emerald-400"></i> F-Commerce Management Dashboard
+            </h2>
 
-    <!-- Footer -->
-    <footer class="text-center py-8 text-slate-600 text-sm border-t border-slate-900 mt-10">
-        © 2026 PageCraft AI. All rights reserved for F-Commerce Owners.
-    </footer>
-
-    <!-- Script -->
-    <script>
-        const form = document.getElementById('landingForm');
-        const previewSection = document.getElementById('previewSection');
-        const previewContent = document.getElementById('previewContent');
-        const resetBtn = document.getElementById('resetBtn');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('productName').value;
-            const category = document.getElementById('businessCategory').value;
-            const audience = document.getElementById('targetAudience').value || 'General Customers';
-            const cta = document.getElementById('ctaAction').value;
-
-            let ctaText = "Order Now";
-            if(cta === 'messenger') ctaText = "💬 Order on Messenger";
-            if(cta === 'whatsapp') ctaText = "📱 Order on WhatsApp";
-            if(cta === 'checkout') ctaText = "🛒 Place Order Now";
-
-            previewContent.innerHTML = `
-                <div class="text-center space-y-3">
-                    <span class="text-xs uppercase tracking-widest text-brand-400 font-bold">${category}</span>
-                    <h2 class="text-2xl md:text-3xl font-black text-white">${name}</h2>
-                    <p class="text-slate-300 text-sm max-w-md mx-auto">Best quality products specially curated for ${audience}. Order today and get exclusive cash on delivery support across Bangladesh!</p>
-                    <div class="pt-4">
-                        <button class="bg-gradient-to-r from-brand-600 to-indigo-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg shadow-brand-500/20 hover:opacity-95 transition">
-                            ${ctaText}
-                        </button>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <!-- Quick Edit Product Info -->
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">1. Product Customization</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">Store / Product Name</label>
+                            <input type="text" id="inputProductName" value="UltraPods Pro Wireless Earbuds" oninput="updateProductData()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">Regular Price (৳)</label>
+                            <input type="number" id="inputRegPrice" value="1990" oninput="updateProductData()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-slate-400 mb-1">Offer Price (৳)</label>
+                            <input type="number" id="inputSalePrice" value="1290" oninput="updateProductData()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                        </div>
                     </div>
                 </div>
-            `;
 
-            form.parentElement.classList.add('hidden');
-            previewSection.classList.remove('hidden');
-        });
+                <!-- Steadfast / Pathao CSV Export & Order Logs -->
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 md:col-span-2 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">2. Customer Orders & Courier CSV Export</h3>
+                            <button onclick="exportOrdersCSV()" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg shadow transition flex items-center gap-1">
+                                <i class="fa-solid fa-file-arrow-down"></i> Export Steadfast / Pathao CSV
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto max-h-40 rounded-lg border border-slate-800">
+                            <table class="w-full text-left text-xs text-slate-300">
+                                <thead class="bg-slate-900 text-slate-400 sticky top-0">
+                                    <tr>
+                                        <th class="p-2">Name</th>
+                                        <th class="p-2">Phone</th>
+                                        <th class="p-2">Address</th>
+                                        <th class="p-2">Total</th>
+                                        <th class="p-2">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orderTableBody">
+                                    <tr>
+                                        <td colspan="5" class="p-4 text-center text-slate-500">No orders received yet. Test the order form below!</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-slate-800/60 flex justify-between items-center text-xs text-slate-400">
+                        <span>Total Orders: <strong id="totalOrderCount" class="text-white">0</strong></span>
+                        <button onclick="clearOrders()" class="text-rose-400 hover:text-rose-300 underline">Clear Orders</button>
+                    </div>
+                </div>
+            </div>
 
-        resetBtn.addEventListener('click', function() {
-            previewSection.classList.add('hidden');
-            form.parentElement.classList.remove('hidden');
-        });
-    </script>
-</body>
-</html>
+            <!-- Social Caption Generator Tool -->
+            <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-400">3. One-Click Social Copy Generator (Facebook Caption)</h3>
+                    <button onclick="generateFacebookCaption()" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg transition">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Generate Caption
+                    </button>
+                </div>
+                <textarea id="socialCaptionOutput" readonly rows="3" class="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs text-slate-300 focus:outline-none">ক্লিক করুন উপরে জেনারেট করার জন্য...</textarea>
+            </div>
+        </div>
+
+        <!-- 2. HERO SECTION -->
+        <section class="text-center space-y-6 pt-4">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-inner">
+                <i class="fa-solid fa-shield-check text-emerald-400"></i> ১০০% অরিজিনাল প্রোডাক্ট ও হোম ডেলিভারি
+            </div>
+            
+            <h1 id="heroHeadline" class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+                তারের ঝামেলা থেকে মুক্তি! পান প্রিমিয়াম কোয়ালিটির <span class="bg-gradient-to-r from-emerald-400 to-indigo-400 bg-clip-text text-transparent">UltraPods Pro</span>
+            </h1>
+            
+            <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto">
+                প্রিমিয়াম সাউন্ড কোয়ালিটি, লং লাস্টিং ব্যাটারি ব্যাকআপ এবং নয়েজ ক্যান্সেলিং ফিচারের সাথে আপনার প্রতিদিনের মিউজিক ও কলিং অভিজ্ঞতা করুন আরও দুর্দান্ত।
+            </p>
+
+            <!-- Trust Factors Badges -->
+            <div class="grid grid-cols-3 gap-3 max-w-xl mx-auto pt-2">
+                <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl flex flex-col items-center text-center">
+                    <i class="fa-solid fa-truck-fast text-emerald-400 text-lg mb-1"></i>
+                    <span class="text-xs font-bold text-slate-200">ক্যাশ অন ডেলিভারি</span>
+                    <span class="text-[10px] text-slate-400">সারা বাংলাদেশে</span>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl flex flex-col items-center text-center">
+                    <i class="fa-solid fa-rotate-left text-indigo-400 text-lg mb-1"></i>
+                    <span class="text-xs font-bold text-slate-200">৭ দিনের গ্যারান্টি</span>
+                    <span class="text-[10px] text-slate-400">রিপ্লেসমেন্ট ওয়ারেন্টি</span>
+                </div>
+                <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-2xl flex flex-col items-center text-center">
+                    <i class="fa-solid fa-circle-check text-emerald-400 text-lg mb-1"></i>
+                    <span class="text-xs font-bold text-slate-200">১০০% অরিজিনাল</span>
+                    <span class="text-[10px] text-slate-400">যাচাই করে পেমেন্ট</span>
+                </div>
+            </div>
+
+            <!-- Interactive Dual CTA -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                <a href="#orderSection" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-emerald-600/30 transition flex items-center justify-center gap-2 text-base">
+                    <i class="fa-solid fa-cart-shopping"></i> অর্ডার করতে নিচে যান (COD)
+                </a>
+                <a href="https://wa.me/8801700000000?text=Hi,%20I%20want%20to%20order%20this%20product." target="_blank" class="bg-slate-900 hover:bg-slate-800 text-emerald-400 border border-emerald-500/30 font-bold px-6 py-4 rounded-2xl transition flex items-center justify-center gap-2 text-base shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> মেসেঞ্জার / হোয়াটসঅ্যাপে অর্ডার
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. PRODUCT SHOWCASE & FEATURE SECTION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-slate-900/60 border border-slate-800/80 rounded-3xl p-6 sm:p-8 backdrop-blur-md">
+            <!-- Interactive Image Gallery -->
+            <div class="space-y-4">
+                <div class="relative rounded-2xl overflow-hidden border border-slate-800 aspect-square bg-slate-950 flex items-center justify-center">
+                    <img id="mainProductImg" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" alt="Product Image" class="w-full h-full object-cover transition duration-300">
+                    <span class="absolute top-3 left-3 bg-rose-600 text-white text-xs font-extrabold px-3 py-1 rounded-full shadow-md">
+                        🔥 ৩০% ছাড়!
+                    </span>
+                </div>
+                <!-- Thumbnails -->
+                <div class="grid grid-cols-3 gap-3">
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80')" class="rounded-xl overflow-hidden border-2 border-emerald-500 aspect-square bg-slate-950">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover">
+                    </button>
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=600&q=80')" class="rounded-xl overflow-hidden border-2 border-transparent hover:border-slate-600 aspect-square bg-slate-950">
+                        <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover">
+                    </button>
+                    <button onclick="changeImage('https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=600&q=80')" class="rounded-xl overflow-hidden border-2 border-transparent hover:border-slate-600 aspect-square bg-slate-950">
+                        <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?auto=format&fit=crop&w=200&q=80" class="w-full h-full object-cover">
+                    </button>
+                </div>
+            </div>
+
+            <!-- Feature Highlight Cards -->
+            <div class="space-y-4">
+                <h2 class="text-2xl font-bold text-white">কেন কিনবেন এই প্রোডাক্টটি?</h2>
+                <div class="space-y-3">
+                    <div class="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Hi-Fi Deep Bass Sound</h3>
+                            <p class="text-xs text-slate-400">সঙ্গীতপ্রেমীদের জন্য ক্রিস্টাল ক্লিয়ার সাউন্ড ও অসাধারণ বেস কোয়ালিটি।</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-battery-full"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-white">২৪ ঘন্টা ব্যাটারি ব্যাকআপ</h3>
+                            <p class="text-xs text-slate-400">একবার চার্জে টানা কয়েকদিন ব্যবহার করুন কোনো ঝামেলা ছাড়াই।</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-950/80 border border-slate-800 p-4 rounded-2xl flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                            <i class="fa-solid fa-droplet"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-sm font-bold text-white">Sweat & Water Resistant</h3>
+                            <p class="text-xs text-slate-400">জিম বা রানিং করার সময় ঘাম বা পানির ছাঁটে নষ্ট হওয়ার ভয় নেই।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TRUST & PROOF SECTION (Customer Reviews) -->
+        <section class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">আমাদের সন্তুষ্ট গ্রাহকদের মতামত</h2>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">হাজারেরও বেশি সফল ডেলিভারির কিছু অভিজ্ঞতা</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-9 h-9 rounded-full bg-emerald-600/30 text-emerald-300 font-bold flex items-center justify-center text-xs">আর</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Tanvir Ahmed</h4>
+                                <span class="text-[10px] text-emerald-400">✅ Verified Buyer (Dhaka)</span>
+                            </div>
+                        </div>
+                        <div class="text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300">"অসম্ভব সুন্দর সাউন্ড কোয়ালিটি! অর্ডার করার ২৪ ঘন্টার মধ্যেই হাতে পেয়েছি। প্যাকেজিং খুবই প্রিমিয়াম ছিল। ধন্যবাদ GadgetBD Store কে।"</p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 p-5 rounded-2xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-9 h-9 rounded-full bg-indigo-600/30 text-indigo-300 font-bold flex items-center justify-center text-xs">স</div>
+                            <div>
+                                <h4 class="text-xs font-bold text-white">Sumaiya Rahman</h4>
+                                <span class="text-[10px] text-emerald-400">✅ Verified Buyer (Chittagong)</span>
+                            </div>
+                        </div>
+                        <div class="text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-300">"প্রোডাক্ট একদম ছবি বা 
